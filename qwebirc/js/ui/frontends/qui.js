@@ -204,8 +204,8 @@ qwebirc.ui.QUI = new Class({
         resultfn = this.commandhistory.upLine;
       } else if(e.key == "down") {
         resultfn = this.commandhistory.downLine;
-      //} else if(e.key == "tab" && !e.altKey && !e.ctrlKey && !e.shiftKey) { // FIXME: is this what we really mean?
-      } else if(e.key == "tab") {
+      } else if(e.key == "tab" && !e.altKey && !e.ctrlKey && !e.shiftKey) {
+      //} else if(e.key == "tab") { // GGG trying dcoatzee's line above
         new Event(e).stop();
         this.tabComplete(inputbox);
         return;
