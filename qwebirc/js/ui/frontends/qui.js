@@ -430,6 +430,13 @@ qwebirc.ui.QUI.Window = new Class({
       this.scrollpos = this.getScrollParent().getScroll();
     }.bind(this));
     
+    function addIconToInput(event) {
+      event.preventDefault();
+      document.getElementById('message-input').value += this.getAttribute("data-icon-name");
+      document.getElementById('message-input').focus();
+      return false;
+    }
+    
     if(type == qwebirc.ui.WINDOW_CHANNEL) {
       this.topic = new Element("div");
       this.topic.addClass("topic");
@@ -445,17 +452,8 @@ qwebirc.ui.QUI.Window = new Class({
         iconToAdd.className = "icon-menu-item";
         iconToAdd.setAttribute("data-icon-name", ":" + this.iconsAllowed[i] + ":");
         iconToAdd.innerHTML = '<i class="fa fa-' + this.iconsAllowed[i] + '"></i><span class="sr">' + this.iconsAllowed[i] + '</span>';
+        iconToAdd.onclick = addIconToInput;
         this.iconMenuWrapper.appendChild(iconToAdd);
-      }
-      
-      function addIconToInput() {
-        event.preventDefault();
-        document.getElementById('message-input').value += this.getAttribute("data-icon-name");
-        document.getElementById('message-input').focus();
-      }
-      
-      for (var i=0; i<this.iconMenuWrapper.children.length; i++) {
-        this.iconMenuWrapper.children[i].onclick = addIconToInput;
       }
       
       this.prevNick = null;
