@@ -237,7 +237,7 @@ qwebirc.ui.QUI = new Class({
     var menuButton = new Element("a");
     menuButton.id = "icon-menu-button";
     menuButton.href = "#";
-    menuButton.innerHTML = '<i class="fa fa-puzzle-piece"></i><span class="sr">Icon Menu</span>';
+    menuButton.innerHTML = '<i class="fa fa-tree"></i><span class="sr">Icon Menu</span>';
     iconMenu.appendChild(menuButton);
     var menuWrapper = new Element("div");
     menuWrapper.id = "icon-menu-wrapper";
