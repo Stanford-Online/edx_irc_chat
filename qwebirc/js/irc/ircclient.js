@@ -298,6 +298,9 @@ qwebirc.irc.IRCClient = new Class({
 
     if(nick == this.nickname) {
       this.newChanLine(channel, "OURJOIN", user);
+      this.newChanLine(channel, "WELCOME", user);
+      this.newChanLine(channel, "MENTIONS", user);
+      this.newChanLine(channel, "ICONS", user);
     } else {
       if(!this.ui.uiOptions.HIDE_JOINPARTS) {
         this.newChanLine(channel, "JOIN", user);

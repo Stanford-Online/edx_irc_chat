@@ -22,6 +22,9 @@ qwebirc.ui.themes.Default = {
   "JOIN": ["${$N$} [$h] has joined $c", true],
   //"OURJOIN": ["${$N$} [$h] has joined $c", true],
   "OURJOIN": ["${$N$} has joined chat.", true], // JRBL & GGG
+  "WELCOME": ["Welcome, here are some tips on how to use chat.", true], // GGG
+  "MENTIONS": ["Mentions: Type a username or autocomplete with 'tab' to mention specific users and alert them of your message.", true], // GGG
+  "ICONS": ["Icons: Hover over the tree icon at the bottom right to select and add an icon to your message.", true], // GGG
   //"PART": ["${$N$} [$h] has left $c [$m]", true],
   "PART": ["${$N$} has left chat.", true], // JRBL & GGG
   //"KICK": ["${$v$} was kicked from $c by ${$N$} [$m]", true],
