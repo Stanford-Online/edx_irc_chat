@@ -93,17 +93,17 @@ qwebirc.ui.urlificate = function(element, text, execfn, cmdfn, window) {
     if(addClass)
       a.addClass("hyperlink-" + addClass);
     
-    //if(url)
-    //  a.href = url;
-    //
-    //if(target)
-    //  a.target = target;       // GGG stopped usernames from getting targets and URLs.
+    if(url)
+      a.href = url;
+    
+    if(target)
+      a.target = target;
     addedText.push(disptext);
     a.appendChild(document.createTextNode(disptext));
     
     element.appendChild(a);
-    //if($defined(fn))
-    //  a.addEvent("click", function(e) { new Event(e).stop(); fn(disptext); });  // GGG removed click handler.
+    if($defined(fn))
+      a.addEvent("click", function(e) { new Event(e).stop(); fn(disptext); });
     
     return punct;
   };
