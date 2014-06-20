@@ -152,9 +152,9 @@ qwebirc.ui.Window = new Class({
       opUser.insertBefore(space, opUser.firstChild);
       var icon = document.createElement("i");
       
-      if (element.hasClass('op-msg')) { //   GGG see if message is op, then add op icon.
+      if (element.hasClass('prof-msg')) { //   GGG see if message is op, then add op icon.
         icon.className = "fa fa-graduation-cap";
-      } else if (element.hasClass('join-msg')) {
+      } else if (element.hasClass('join-msg') || element.hasClass('op-msg')) {
         icon.className = "fa fa-tree";
       }
       

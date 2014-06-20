@@ -554,6 +554,7 @@ qwebirc.ui.QUI.Window = new Class({
     this.prevNick = null;
   },
   nickListAdd: function(nick, position) {
+    console.log(nick);
     var realNick = this.client.stripPrefix(nick);
     
     var e = new Element("a");
@@ -687,7 +688,6 @@ qwebirc.ui.QUI.Window = new Class({
       e.addClass('op-msg msg-icon');
       delete line["@"];
     }
-    
     if (type === "OURJOIN") {
       e.addClass('join-msg msg-icon');
       document.getElementById("loading-pane").style.display = "none"; // GGG hide loading pane

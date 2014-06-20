@@ -132,6 +132,9 @@ html {
   border-radius: 3px;
   background-color: #eee;
 }
+.qwebirc-qui .lines .our-msg .hyperlink-whois {
+  padding-left: 0;
+}
 
 .qwebirc-qui .ircwindow div {
   padding: 5px 10px;

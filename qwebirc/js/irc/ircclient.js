@@ -10,8 +10,8 @@ qwebirc.irc.IRCClient = new Class({
     
     this.ui = ui;
 
-    this.prefixes = "@+";
-    this.modeprefixes = "ov";
+    this.prefixes = "@+$";
+    this.modeprefixes = "ovi";
     this.windows = {};
     
     this.commandparser = new qwebirc.irc.Commands(this);
@@ -81,6 +81,10 @@ qwebirc.irc.IRCClient = new Class({
     for(var n in n1) {
       var nc = n1[n];
       var nx;
+      
+      console.log("updateNickList:");
+      console.log(nc);
+      console.log("------");
       
       if(nc.prefixes.length > 0) {
         var c = nc.prefixes.charAt(0);
@@ -242,6 +246,8 @@ qwebirc.irc.IRCClient = new Class({
         prefixes.push(pc);
     }
     
+    console.log("addPrefix: " + nickchanentry);
+    console.log("addPrefix: " + prefixes);
     nickchanentry.prefixes = prefixes.join("");
   },
   stripPrefix: function(nick) {
@@ -341,6 +347,7 @@ qwebirc.irc.IRCClient = new Class({
     this.newChanLine(channel, "KICK", kicker, {"v": kickee, "m": message});
   },
   channelMode: function(user, channel, modes, raw) {
+    console.log("channelMode: " +modes);
     modes.each(function(mo) {
       var direction = mo[0];
       var mode = mo[1];
