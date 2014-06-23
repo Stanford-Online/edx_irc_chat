@@ -198,8 +198,8 @@ qwebirc.ui.BaseUI = new Class({
       IRC connection is made, else users are going to get
       tricked into getting themselves glined
     */
-  loginBox: function(callback, initialNickname, initialChannels, autoConnect, autoNick, adminPass) {
-    qwebirc.ui.GenericLoginBox(this.parentElement, callback, initialNickname, initialChannels, autoConnect, autoNick, this.options.networkName, adminPass);
+  loginBox: function(callback, initialNickname, initialChannels, autoConnect, autoNick, extraArgs) {
+    qwebirc.ui.GenericLoginBox(this.parentElement, callback, initialNickname, initialChannels, autoConnect, autoNick, this.options.networkName, extraArgs);
   },
   focusChange: function(newValue) {
     var window_ = this.getActiveWindow();
@@ -440,7 +440,7 @@ qwebirc.ui.NotificationUI = new Class({
 
 qwebirc.ui.NewLoginUI = new Class({
   Extends: qwebirc.ui.NotificationUI,
-  loginBox: function(callbackfn, initialNickname, initialChannels, autoConnect, autoNick) {
+  loginBox: function(callbackfn, initialNickname, initialChannels, autoConnect, autoNick, extraArgs) {
     this.postInitialize();
 
     /* I'd prefer something shorter and snappier! */
@@ -450,7 +450,7 @@ qwebirc.ui.NewLoginUI = new Class({
       callbackfn(args);
     };
     
-    qwebirc.ui.GenericLoginBox(w.lines, callback, initialNickname, initialChannels, autoConnect, autoNick, this.options.networkName);
+    qwebirc.ui.GenericLoginBox(w.lines, callback, initialNickname, initialChannels, autoConnect, autoNick, this.options.networkName, extraArgs);
   }
 });
 

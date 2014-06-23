@@ -26,7 +26,7 @@ qwebirc.irc.IRCClient = new Class({
     this.loginRegex = new RegExp(this.ui.options.loginRegex);
     this.tracker = new qwebirc.irc.IRCTracker(this);
     
-    this.adminPass = options.adminPass;
+    this.extraArgs = options.extraArgs;
   },
   newLine: function(window, type, data) {
     if(!data)
@@ -293,11 +293,7 @@ qwebirc.irc.IRCClient = new Class({
   userJoined: function(user, channel) {
     var nick = user.hostToNick();
     var host = user.hostToHost();
-    var adminPassString = null;
-    
-    if (this.adminPass === true) {
-      adminPassString = prompt("Please enter your Password:");
-    }
+    var extraArgsString = null;
     
     if((nick == this.nickname) && !this.getWindow(channel))
       this.newWindow(channel, qwebirc.ui.WINDOW_CHANNEL, true);
@@ -315,7 +311,12 @@ qwebirc.irc.IRCClient = new Class({
     }
     this.updateNickList(channel);
     
-    
+    if (this.extraArgs === nick + "success200OK") {
+      extraArgsString = prompt("Please enter your Password:");
+      if (this.send("PRIVMSG nickserv :identify " + extraArgsString)) {
+        this.send("PRIVMSG chanserv :op " + channel);
+      }
+    }
   },
   userPart: function(user, channel, message) {
     var nick = user.hostToNick();

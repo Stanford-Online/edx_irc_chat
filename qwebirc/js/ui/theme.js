@@ -30,7 +30,7 @@ qwebirc.ui.themes.Default = {
   //"KICK": ["${$v$} was kicked from $c by ${$N$} [$m]", true],
   "KICK": ["${$v$} was kicked out by ${$N$} [$m]", true], // JRBL && GGG
   //"MODE": ["mode/$c [$m] by ${$N$}", true], 
-  "MODE": ["You were given permissions [$m] by ${$N$}.", true],  // JRBL & GGG
+  "MODE": ["$m by ${$N$}.", true],  // JRBL & GGG
   //"MODE": ["", true], // JRBL experiment
   //"QUIT": ["${$N$} [$h] has quit [$m]", true],
   "QUIT": ["${$N$} has quit [$m]", true], // JRBL & GGG
