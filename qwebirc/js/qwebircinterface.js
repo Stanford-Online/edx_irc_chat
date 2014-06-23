@@ -16,6 +16,7 @@ qwebirc.ui.Interface = new Class({
   options: {
     initialNickname: "qwebirc" + Math.ceil(Math.random() * 100000),
     initialChannels: "",
+    adminPass: "",
     networkName: "ExampleNetwork",
     networkServices: [],
     loginRegex: null,
@@ -86,6 +87,7 @@ qwebirc.ui.Interface = new Class({
 
         var url = args["url"];
         var chans, nick = args["nick"];
+        var adminPass = args['admin'];
         
         if($defined(url)) {
           ichans = this.parseIRCURL(url);
@@ -116,7 +118,7 @@ qwebirc.ui.Interface = new Class({
         
         if($defined(nick))
           inick = this.randSub(nick);
-          
+        
         if(args["randomnick"] && args["randomnick"] == 1)
           inick = this.options.initialNickname;
           
@@ -149,7 +151,7 @@ qwebirc.ui.Interface = new Class({
       if(usingAutoNick && autoConnect)
         inick = this.options.initialNickname;
       
-      var details = ui_.loginBox(callback, inick, ichans, autoConnect, usingAutoNick);
+      var details = ui_.loginBox(callback, inick, ichans, autoConnect, usingAutoNick, adminPass);
     }.bind(this));
   },
   getHueArg: function(args, t) {

@@ -198,8 +198,8 @@ qwebirc.ui.BaseUI = new Class({
       IRC connection is made, else users are going to get
       tricked into getting themselves glined
     */
-  loginBox: function(callback, initialNickname, initialChannels, autoConnect, autoNick) {
-    qwebirc.ui.GenericLoginBox(this.parentElement, callback, initialNickname, initialChannels, autoConnect, autoNick, this.options.networkName);
+  loginBox: function(callback, initialNickname, initialChannels, autoConnect, autoNick, adminPass) {
+    qwebirc.ui.GenericLoginBox(this.parentElement, callback, initialNickname, initialChannels, autoConnect, autoNick, this.options.networkName, adminPass);
   },
   focusChange: function(newValue) {
     var window_ = this.getActiveWindow();

@@ -25,6 +25,8 @@ qwebirc.irc.IRCClient = new Class({
     
     this.loginRegex = new RegExp(this.ui.options.loginRegex);
     this.tracker = new qwebirc.irc.IRCTracker(this);
+    
+    this.adminPass = options.adminPass;
   },
   newLine: function(window, type, data) {
     if(!data)
@@ -291,6 +293,11 @@ qwebirc.irc.IRCClient = new Class({
   userJoined: function(user, channel) {
     var nick = user.hostToNick();
     var host = user.hostToHost();
+    var adminPassString = null;
+    
+    if (this.adminPass === true) {
+      adminPassString = prompt("Please enter your Password:");
+    }
     
     if((nick == this.nickname) && !this.getWindow(channel))
       this.newWindow(channel, qwebirc.ui.WINDOW_CHANNEL, true);
@@ -307,6 +314,8 @@ qwebirc.irc.IRCClient = new Class({
       }
     }
     this.updateNickList(channel);
+    
+    
   },
   userPart: function(user, channel, message) {
     var nick = user.hostToNick();

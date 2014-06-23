@@ -1,12 +1,12 @@
-qwebirc.ui.GenericLoginBox = function(parentElement, callback, initialNickname, initialChannels, autoConnect, autoNick, networkName) {
+qwebirc.ui.GenericLoginBox = function(parentElement, callback, initialNickname, initialChannels, autoConnect, autoNick, networkName, adminPass) {
   if(autoConnect) {
     // dcoetzee - Force login immediately with no confirm
     // qwebirc.ui.ConfirmBox(parentElement, callback, initialNickname, initialChannels, autoNick, networkName);
     //callback({"nickname": initialNickname, "autojoin": initialChannels});
     // JRBL we push callback calling deeper down to make things work more consistently
-    qwebirc.ui.ConfirmBox(parentElement, callback, initialNickname, initialChannels, autoNick, networkName);
+    qwebirc.ui.ConfirmBox(parentElement, callback, initialNickname, initialChannels, autoNick, networkName, adminPass);
   } else {
-    qwebirc.ui.LoginBox(parentElement, callback, initialNickname, initialChannels, networkName);
+    qwebirc.ui.LoginBox(parentElement, callback, initialNickname, initialChannels, networkName, adminPass);
   }
 }
 
@@ -16,7 +16,7 @@ qwebirc.ui.AuthLogin = function(e) {
   new Event(e).stop();
 }
 
-qwebirc.ui.ConfirmBox = function(parentElement, callback, initialNickname, initialChannels, autoNick, networkName) {
+qwebirc.ui.ConfirmBox = function(parentElement, callback, initialNickname, initialChannels, autoNick, networkName, adminPass) {
   var outerbox = new Element("table");
   outerbox.addClass("qwebirc-centrebox");
   parentElement.appendChild(outerbox);
@@ -95,10 +95,10 @@ qwebirc.ui.ConfirmBox = function(parentElement, callback, initialNickname, initi
 
   /* JRBL */ 
   parentElement.removeChild(outerbox);
-  callback({"nickname": scrubbedNick, "autojoin": initialChannels});
+  callback({"nickname": scrubbedNick, "autojoin": initialChannels, "adminpass": adminPass});
 }
 
-qwebirc.ui.LoginBox = function(parentElement, callback, initialNickname, initialChannels, networkName) {
+qwebirc.ui.LoginBox = function(parentElement, callback, initialNickname, initialChannels, networkName, adminPass) {
   var outerbox = new Element("table");
   outerbox.addClass("qwebirc-centrebox");
   parentElement.appendChild(outerbox);

@@ -567,9 +567,6 @@ qwebirc.ui.QUI.Window = new Class({
         span.setStyle("color", colour.rgbToHex());
     }
     
-    if (nick.charAt(0) === "$") { // GGG server ops get icon in nicklist
-      nick = '<i class="fa fa-tree"></i> ' + nick.substring(1, nick.length);
-    }
     if (nick.charAt(0) === "@") { // GGG ops get icon in nicklist
       nick = '<i class="fa fa-graduation-cap"></i> ' + nick.substring(1, nick.length);
     }
