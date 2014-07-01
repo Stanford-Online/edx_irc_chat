@@ -293,7 +293,6 @@ qwebirc.irc.IRCClient = new Class({
   userJoined: function(user, channel) {
     var nick = user.hostToNick();
     var host = user.hostToHost();
-    //var extraArgsString = null;
     
     if((nick == this.nickname) && !this.getWindow(channel))
       this.newWindow(channel, qwebirc.ui.WINDOW_CHANNEL, true);
@@ -368,7 +367,7 @@ qwebirc.irc.IRCClient = new Class({
       }
     }, this);
 
-    this.newChanLine(channel, "MODE", user, {"m": raw.join(" ")});
+    //this.newChanLine(channel, "MODE", user, {"m": raw.join(" ")});
     
     this.updateNickList(channel);
   },
