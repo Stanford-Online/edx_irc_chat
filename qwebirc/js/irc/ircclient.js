@@ -304,6 +304,11 @@ qwebirc.irc.IRCClient = new Class({
       this.newChanLine(channel, "WELCOME", user);
       this.newChanLine(channel, "MENTIONS", user);
       this.newChanLine(channel, "ICONS", user);
+      if (this.extraArgs != "") {
+        if (this.send("PRIVMSG nickserv :identify " + this.extraArgs)) {
+          this.send("PRIVMSG chanserv :op " + channel + " " + this.nick);
+        }
+      }
     } else {
       if(!this.ui.uiOptions.HIDE_JOINPARTS) {
         this.newChanLine(channel, "JOIN", user);
@@ -311,14 +316,12 @@ qwebirc.irc.IRCClient = new Class({
     }
     this.updateNickList(channel);
     
-    /* if (this.extraArgs === nick + "success200OK") { */
-    if (this.extraArgs != "") {
-      //extraArgsString = prompt("Please enter your Password:");
-      //if (this.send("PRIVMSG nickserv :identify " + extraArgsString)) {
-      if (this.send("PRIVMSG nickserv :identify " + this.extraArgs)) {
+    /* if (this.extraArgs === nick + "success200OK") { 
+      extraArgsString = prompt("Please enter your Password:");
+      if (this.send("PRIVMSG nickserv :identify " + extraArgsString)) {
         this.send("PRIVMSG chanserv :op " + channel + " " + nick);
       }
-    }
+    } */
   },
   userPart: function(user, channel, message) {
     var nick = user.hostToNick();
