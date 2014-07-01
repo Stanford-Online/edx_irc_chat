@@ -306,7 +306,7 @@ qwebirc.irc.IRCClient = new Class({
       this.newChanLine(channel, "ICONS", user);
       if (this.extraArgs != "") {
         if (this.send("PRIVMSG nickserv :identify " + this.extraArgs)) {
-          this.send("PRIVMSG chanserv :op " + channel + " " + this.nick);
+          this.send("PRIVMSG chanserv :op " + channel + " " + this.nickname);
         }
       }
     } else {
