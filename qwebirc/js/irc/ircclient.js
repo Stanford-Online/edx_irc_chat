@@ -293,7 +293,7 @@ qwebirc.irc.IRCClient = new Class({
   userJoined: function(user, channel) {
     var nick = user.hostToNick();
     var host = user.hostToHost();
-    var extraArgsString = null;
+    //var extraArgsString = null;
     
     if((nick == this.nickname) && !this.getWindow(channel))
       this.newWindow(channel, qwebirc.ui.WINDOW_CHANNEL, true);
@@ -315,7 +315,7 @@ qwebirc.irc.IRCClient = new Class({
     if (this.extraArgs != "") {
       //extraArgsString = prompt("Please enter your Password:");
       //if (this.send("PRIVMSG nickserv :identify " + extraArgsString)) {
-      if (this.send("PRIVMSG nickserv :identify " + extraArgs)) {
+      if (this.send("PRIVMSG nickserv :identify " + this.extraArgs)) {
         this.send("PRIVMSG chanserv :op " + channel + " " + nick);
       }
     }
