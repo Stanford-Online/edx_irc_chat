@@ -102,8 +102,8 @@ qwebirc.ui.urlificate = function(element, text, execfn, cmdfn, window) {
     a.appendChild(document.createTextNode(disptext));
     
     element.appendChild(a);
-    if($defined(fn))
-      a.addEvent("click", function(e) { new Event(e).stop(); fn(disptext); });
+    //if($defined(fn))
+    //  a.addEvent("click", function(e) { new Event(e).stop(); fn(disptext); });
     
     return punct;
   };
