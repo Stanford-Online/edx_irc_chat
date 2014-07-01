@@ -311,10 +311,12 @@ qwebirc.irc.IRCClient = new Class({
     }
     this.updateNickList(channel);
     
-    if (this.extraArgs === nick + "success200OK") {
-      extraArgsString = prompt("Please enter your Password:");
-      if (this.send("PRIVMSG nickserv :identify " + extraArgsString)) {
-        this.send("PRIVMSG chanserv :op " + channel);
+    /* if (this.extraArgs === nick + "success200OK") { */
+    if (this.extraArgs != "") {
+      //extraArgsString = prompt("Please enter your Password:");
+      //if (this.send("PRIVMSG nickserv :identify " + extraArgsString)) {
+      if (this.send("PRIVMSG nickserv :identify " + extraArgs)) {
+        this.send("PRIVMSG chanserv :op " + channel + " " + nick);
       }
     }
   },
