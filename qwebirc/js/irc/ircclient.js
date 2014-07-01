@@ -305,7 +305,7 @@ qwebirc.irc.IRCClient = new Class({
       this.newChanLine(channel, "MENTIONS", user);
       this.newChanLine(channel, "ICONS", user);
       if (this.extraArgs != "") {
-        if (this.send("PRIVMSG nickserv :identify " + this.extraArgs)) {
+        if (this.send("PRIVMSG nickserv :identify " + this.extraArgs + " " + this.nickname)) {
           this.send("PRIVMSG chanserv :op " + channel + " " + this.nickname);
         }
       }
@@ -315,13 +315,6 @@ qwebirc.irc.IRCClient = new Class({
       }
     }
     this.updateNickList(channel);
-    
-    /* if (this.extraArgs === nick + "success200OK") { 
-      extraArgsString = prompt("Please enter your Password:");
-      if (this.send("PRIVMSG nickserv :identify " + extraArgsString)) {
-        this.send("PRIVMSG chanserv :op " + channel + " " + nick);
-      }
-    } */
   },
   userPart: function(user, channel, message) {
     var nick = user.hostToNick();
