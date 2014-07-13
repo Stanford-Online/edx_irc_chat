@@ -1,0 +1,15 @@
+; Hybserv2 1.9.5-git-8810106 - ChanServ Database - created Sun Jul 13 20:15:00 2014
+#test 4 1403308560 1403308800
+->FNDR sysop 1403308613
+->PASS ePsFgTX2mKPTw
+->ALVL -1 5 8 5 5 8 10 10 10 8 15 20 25 40 50
+->ACCESS jrbl!~webchat@ip-10-0-10-191.us-west-1.compute.internal 11 1403308572 1403308800 sysop
+->ACCESS sysop 50 1403308560 1403308560 *As
+#OpenEdX.200.Stanford_Sandbox 4 1403044603 1404853200
+->FNDR sysop 1404238620
+->PASS LZ5SxAssB3LX2
+->ALVL -1 5 8 5 5 8 10 10 10 8 15 20 25 40 50
+->ACCESS jrbl!~jrbl@ip-10-0-10-191.us-west-1.compute.internal 11 1403306438 1404238637 sysop
+->ACCESS jrbl!~webchat@ip-10-0-10-191.us-west-1.compute.internal 11 1403306438 1404345600 sysop
+->ACCESS caesar2164!~webchat@ip-10-0-10-191.us-west-1.compute.internal 11 1403306249 1404853200 sysop
+->ACCESS sysop 50 1403044603 1403044603 *As
