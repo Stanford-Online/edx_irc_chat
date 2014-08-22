@@ -155,7 +155,7 @@ html {
   //width: 99%;
   border: 1px solid #999;
   margin: .5%;
-  width: 98%;
+  width: 95%;
   padding: .5%;
   border-radius: 3px;
   box-shadow: 0 0 5px #999;
